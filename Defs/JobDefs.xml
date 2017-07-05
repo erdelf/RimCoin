@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <JobDef>
+    <defName>InstallPCPart</defName>
+    <driverClass>RimCoin.JobDriver_InstallPCPart</driverClass>
+    <reportString>installing TargetA in TargetB.</reportString>
+  </JobDef>  
+</Defs>

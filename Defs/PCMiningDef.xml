@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PCMiningDefs>
+    <RimCoin.PCMiningDef ParentName="ResourceBase">
+        <defname>RC_GPU_base</defname>
+        <label>gpu</label>
+        <spaceCost>5</spaceCost>
+        <slot>PCI</slot>
+        <miningFactor>1.0</miningFactor>
+        <miningPowerDraw>600</miningPowerDraw>
+
+        <graphicData>
+            <texPath>Things/Item/Special/AIPersonaCore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </RimCoin.PCMiningDef>
+</PCMiningDefs>

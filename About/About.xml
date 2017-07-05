@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>RimCoin</name>
+  <author>erdelf</author>
+  <targetVersion>0.17.0</targetVersion>
+  <description>
+This mod adds computer/servers/and components for computer building to RimWorld that can slowly generate different types of “RimCoin” to be sold to vendors/merchants/caravans.
+  </description>
+</ModMetaData>

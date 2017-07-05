@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PCCaseDefs>
+    <RimCoin.PCCoolerDef ParentName="ResourceBase">
+        <defname>RC_Cooler_Medium</defname>
+        <label>cooler medium</label>
+        <spaceCost>5</spaceCost>
+        <heatDisplacement>20</heatDisplacement>
+
+        <graphicData>
+            <texPath>Things/Item/Special/AIPersonaCore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </RimCoin.PCCoolerDef>
+</PCCaseDefs>

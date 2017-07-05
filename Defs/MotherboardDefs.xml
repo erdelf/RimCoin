@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MotherboardDefs>
+    <RimCoin.PCMotherboardDef ParentName="ResourceBase">
+        <defname>RC_Motherboard_medium</defname>
+        <label>motherboard medium</label>
+        <spaceCost>10</spaceCost>
+        <slots>
+            <PCI>10</PCI>
+        </slots>
+        <graphicData>
+            <texPath>Things/Item/Special/AIPersonaCore</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </RimCoin.PCMotherboardDef>
+</MotherboardDefs>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PCCaseDefs>
+    <RimCoin.PCCaseDef Name="CaseBase" ParentName="BuildingBase" Abstract="true">
+        <thingClass>RimCoin.Building_Computer</thingClass>
+        <tickerType>Long</tickerType>
+        <DesignationCategory>Misc</DesignationCategory>
+        <tradeTags>
+            <li>RimCoin</li>
+        </tradeTags>
+        <inspectorTabs>
+            <li>ITab_Art</li>
+            <li>RimCoin.ITab_Computer_General</li>
+        </inspectorTabs>
+        <AltitudeLayer>Building</AltitudeLayer>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <comps>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+            <li Class="CompProperties_Art">
+                <nameMaker>ArtName_Furniture</nameMaker>
+                <descriptionMaker>ArtDescription_Furniture</descriptionMaker>
+                <minQualityForArtistic>Excellent</minQualityForArtistic>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>0</basePowerConsumption>
+                <shortCircuitInRain>true</shortCircuitInRain>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+        </comps>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+    </RimCoin.PCCaseDef>
+
+    <RimCoin.PCCaseDef ParentName="CaseBase">
+        <defname>RC_MidiTower</defname>
+        <label>midi tower</label>
+        <caseSpace>50.0</caseSpace>
+        <graphicData>
+            <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(3,4)</drawSize>
+            <damageData>
+                <rect>(0,0.05,1,1.95)</rect>
+            </damageData>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <WorkToBuild>1740</WorkToBuild>
+            <Mass>85</Mass>
+            <Comfort>0.75</Comfort>
+            <Beauty>2</Beauty>
+        </statBases>
+        <costStuffCount>35</costStuffCount>
+    </RimCoin.PCCaseDef>
+</PCCaseDefs>
