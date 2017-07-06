@@ -4,7 +4,7 @@
         <defname>RC_Cooler_Medium</defname>
         <label>cooler medium</label>
         <spaceCost>5</spaceCost>
-        <heatDisplacement>20</heatDisplacement>
+        <heatDisplacement>0.80</heatDisplacement>
 
         <graphicData>
             <texPath>Things/Item/Special/AIPersonaCore</texPath>

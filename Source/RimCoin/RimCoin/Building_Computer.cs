@@ -27,10 +27,11 @@ namespace RimCoin
 
         public override void TickLong()
         {
-            if (this.GetComp<CompPowerTrader>().PowerOn)
+            if (this.GetComp<CompPowerTrader>().PowerOn || this.AmbientTemperature < 80f)
             {
                 Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount += Mathf.RoundToInt(this.parts.Select(t => t.def).OfType<PCMiningDef>().Sum(pcd => 1 * pcd.miningFactor));
-                this.GetComp<CompPowerTrader>().PowerOutput = -this.parts.Sum(t => (t.def as PCPartDef).powerDraw);
+                GenTemperature.PushHeat(this, Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput));
+                UpdatePowerDraw();
             }
         }
 
@@ -48,20 +49,27 @@ namespace RimCoin
                 if(part.Spawned)
                     part.DeSpawn();
                 this.parts.Add(part);
+                UpdatePowerDraw();
                 return true;
             }
             return false;
         }
+
+        public float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput);
 
         public bool TryRemovePart(Thing part, IntVec3 loc)
         {
             if(this.parts.Remove(part))
             {
                 GenSpawn.Spawn(part, loc, this.Map);
+                UpdatePowerDraw();
                 return true;
             }
             return false;
         }
+
+        public void UpdatePowerDraw() => 
+            this.GetComp<CompPowerTrader>().PowerOutput = -this.parts.Sum(t => (t.def as PCPartDef).powerDraw);
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
         {
@@ -83,7 +91,7 @@ namespace RimCoin
         }
 
         public override string GetInspectString() => 
-            base.GetInspectString().Trim() + "\nBitCoins: " + Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount;
+            base.GetInspectString().Trim() + "\nRimCoins: " + Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount;
 
         public override void ExposeData()
         {
