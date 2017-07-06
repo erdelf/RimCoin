@@ -11,6 +11,7 @@
             <li>ITab_Art</li>
             <li>RimCoin.ITab_Computer_General</li>
         </inspectorTabs>
+        <passability>Impassable</passability>
         <AltitudeLayer>Building</AltitudeLayer>
         <minifiedDef>MinifiedFurniture</minifiedDef>
         <comps>

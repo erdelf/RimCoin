@@ -7,5 +7,6 @@ namespace RimCoin
     public static class RCDefOf
     {
         public static JobDef InstallPCPart;
+        public static JobDef UninstallPCPart;
     }
 }

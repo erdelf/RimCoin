@@ -55,7 +55,15 @@ namespace RimCoin
             return false;
         }
 
-        public bool TryRemovePart(Thing part) => this.parts.Remove(part);
+        public bool TryRemovePart(Thing part, IntVec3 loc)
+        {
+            if(this.parts.Remove(part))
+            {
+                GenSpawn.Spawn(part, loc, Map);
+                return true;
+            }
+            return false;
+        }
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)
         {
@@ -64,7 +72,8 @@ namespace RimCoin
 
             foreach (Thing thing in this.parts)
                 if (thing != this.Motherboard || this.parts.Count == 1)
-                    yield return new FloatMenuOption("uninstall " + thing.LabelCap, () => TryRemovePart(thing));
+                    yield return new FloatMenuOption("uninstall " + thing.LabelCap, () =>
+                        selPawn.jobs.TryTakeOrderedJob(new Job(RCDefOf.UninstallPCPart, this, thing)));
 
             yield return new FloatMenuOption("install new part",
                 () => Find.Targeter.BeginTargeting(new TargetingParameters()

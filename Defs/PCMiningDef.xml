@@ -6,7 +6,7 @@
         <spaceCost>5</spaceCost>
         <slot>PCI</slot>
         <miningFactor>1.0</miningFactor>
-        <miningPowerDraw>600</miningPowerDraw>
+        <powerDraw>600</powerDraw>
 
         <graphicData>
             <texPath>Things/Item/Special/AIPersonaCore</texPath>

@@ -4,5 +4,10 @@
     <defName>InstallPCPart</defName>
     <driverClass>RimCoin.JobDriver_InstallPCPart</driverClass>
     <reportString>installing TargetA in TargetB.</reportString>
-  </JobDef>  
+  </JobDef>
+  <JobDef>
+    <defName>UninstallPCPart</defName>
+    <driverClass>RimCoin.JobDriver_UninstallPCPart</driverClass>
+    <reportString>uninstalling TargetB from TargetA.</reportString>
+  </JobDef> 
 </Defs>
