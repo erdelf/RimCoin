@@ -9,14 +9,12 @@ namespace RimCoin
 {
     public class Building_Computer : Building
     {
-        public int bitCoinAmount;
         public List<Thing> parts;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             this.parts = new List<Thing>();
-            this.bitCoinAmount = 0;
         }
 
         public Thing Motherboard => this.parts.FirstOrDefault(p => p.def is PCMotherboardDef);
@@ -31,7 +29,7 @@ namespace RimCoin
         {
             if (this.GetComp<CompPowerTrader>().PowerOn)
             {
-                this.bitCoinAmount += Mathf.RoundToInt(this.parts.Select(t => t.def).OfType<PCMiningDef>().Sum(pcd => 1 * pcd.miningFactor));
+                Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount += Mathf.RoundToInt(this.parts.Select(t => t.def).OfType<PCMiningDef>().Sum(pcd => 1 * pcd.miningFactor));
                 this.GetComp<CompPowerTrader>().PowerOutput = -this.parts.Sum(t => (t.def as PCPartDef).powerDraw);
             }
         }
@@ -59,7 +57,7 @@ namespace RimCoin
         {
             if(this.parts.Remove(part))
             {
-                GenSpawn.Spawn(part, loc, Map);
+                GenSpawn.Spawn(part, loc, this.Map);
                 return true;
             }
             return false;
@@ -85,12 +83,11 @@ namespace RimCoin
         }
 
         public override string GetInspectString() => 
-            base.GetInspectString().Trim() + "\nBitCoins: " + this.bitCoinAmount;
+            base.GetInspectString().Trim() + "\nBitCoins: " + Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref this.bitCoinAmount, "bitCoins");
             Scribe_Collections.Look(ref this.parts, "pc parts", LookMode.Deep);
         }
     }
