@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <UninstallPCPartFloatMenu>Uninstall {0}</UninstallPCPartFloatMenu>
+    <InstallPCPartFloatMenu>Install new part</InstallPCPartFloatMenu>
+    <RimCoins>RimCoins</RimCoins>
+    <RimCoin>RimCoin</RimCoin>
+</LanguageData>
