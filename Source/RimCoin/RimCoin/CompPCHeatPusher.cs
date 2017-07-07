@@ -22,7 +22,7 @@ namespace RimCoin
             {
                 CompProperties_HeatPusher props = this.Props;
                 float ambientTemperature = this.parent.AmbientTemperature;
-                GenTemperature.PushHeat(this.parent, props.heatPerSecond);
+                GenTemperature.PushHeat(this.parent, (this.parent as Building_Computer).HeatEnergy);
             }
         }
     }
