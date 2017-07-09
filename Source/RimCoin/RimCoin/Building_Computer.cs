@@ -55,7 +55,11 @@ namespace RimCoin
             return false;
         }
 
+<<<<<<< HEAD
         public virtual float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput);
+=======
+        public float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput/100) * this.parts.Select(t => t.def).OfType<PCCoolerDef>().Select(pcc => pcc.heatDisplacement).Aggregate((a,b) => a*b+a);
+>>>>>>> refs/remotes/origin/master
 
         public virtual bool TryRemovePart(Thing part, IntVec3 loc)
         {
@@ -78,10 +82,10 @@ namespace RimCoin
 
             foreach (Thing thing in this.parts)
                 if (thing != this.Motherboard || this.parts.Count == 1)
-                    yield return new FloatMenuOption("uninstall " + thing.LabelCap, () =>
+                    yield return new FloatMenuOption("UninstallPCPartFloatMenu".Translate(thing.LabelCap), () =>
                         selPawn.jobs.TryTakeOrderedJob(new Job(RCDefOf.UninstallPCPart, this, thing)));
 
-            yield return new FloatMenuOption("install new part",
+            yield return new FloatMenuOption("InstallPCPartFloatMenu".Translate(),
                 () => Find.Targeter.BeginTargeting(new TargetingParameters()
                 {
                     validator = lti => AcceptsPart(lti.Cell.GetFirstItem(lti.Map)),
@@ -91,7 +95,7 @@ namespace RimCoin
         }
 
         public override string GetInspectString() => 
-            base.GetInspectString().Trim() + "\nRimCoins: " + Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount;
+            base.GetInspectString().Trim() + "\n" + "RimCoins".Translate() + ": " +Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount;
 
         public override void ExposeData()
         {

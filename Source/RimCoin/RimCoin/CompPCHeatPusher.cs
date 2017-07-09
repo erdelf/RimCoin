@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace RimCoin
@@ -22,7 +18,7 @@ namespace RimCoin
             {
                 CompProperties_HeatPusher props = this.Props;
                 float ambientTemperature = this.parent.AmbientTemperature;
-                GenTemperature.PushHeat(this.parent, props.heatPerSecond);
+                GenTemperature.PushHeat(this.parent, (this.parent as Building_Computer).HeatEnergy);
             }
         }
     }
