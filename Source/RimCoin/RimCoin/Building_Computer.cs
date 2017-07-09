@@ -55,11 +55,8 @@ namespace RimCoin
             return false;
         }
 
-<<<<<<< HEAD
-        public virtual float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput);
-=======
-        public float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput/100) * this.parts.Select(t => t.def).OfType<PCCoolerDef>().Select(pcc => pcc.heatDisplacement).Aggregate((a,b) => a*b+a);
->>>>>>> refs/remotes/origin/master
+
+        public virtual float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput/100) * this.parts.Select(t => t.def).OfType<PCCoolerDef>().Select(pcc => pcc.heatDisplacement).Aggregate((a,b) => a*b+a);
 
         public virtual bool TryRemovePart(Thing part, IntVec3 loc)
         {
