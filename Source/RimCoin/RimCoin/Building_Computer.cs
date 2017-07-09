@@ -21,9 +21,9 @@ namespace RimCoin
 
         public PCCaseDef CaseDef => this.def as PCCaseDef;
 
-        public float UsedSpace => this.parts.Sum(p => (p.def as PCPartDef).spaceCost);
+        public virtual float UsedSpace => this.parts.Sum(p => (p.def as PCPartDef).spaceCost);
 
-        public float FreeSpace => this.CaseDef.caseSpace - this.UsedSpace;
+        public virtual float FreeSpace => this.CaseDef.caseSpace - this.UsedSpace;
 
         public override void TickLong()
         {
@@ -35,14 +35,14 @@ namespace RimCoin
             }
         }
 
-        public bool HasFreeSlot(string slot) => 
+        public virtual bool HasFreeSlot(string slot) => 
             ((this.Motherboard?.def as PCMotherboardDef)?.slots.FirstOrDefault(psce => psce.slot.EqualsIgnoreCase(slot))?.count ?? 0) > 
             this.parts.Count(t => (t.def as PCSlotPart)?.slot.EqualsIgnoreCase(slot) ?? false);
 
-        public bool AcceptsPart(Thing part) =>
+        public virtual bool AcceptsPart(Thing part) =>
             part?.def is PCPartDef pcp && pcp.spaceCost < this.FreeSpace && ((pcp is PCSlotPart pcsp && HasFreeSlot(pcsp.slot)) || (pcp is PCMotherboardDef && this.Motherboard == null));
 
-        public bool TryInstallPart(Thing part)
+        public virtual bool TryInstallPart(Thing part)
         {
             if (AcceptsPart(part))
             {
@@ -55,9 +55,9 @@ namespace RimCoin
             return false;
         }
 
-        public float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput);
+        public virtual float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput);
 
-        public bool TryRemovePart(Thing part, IntVec3 loc)
+        public virtual bool TryRemovePart(Thing part, IntVec3 loc)
         {
             if(this.parts.Remove(part))
             {
@@ -68,7 +68,7 @@ namespace RimCoin
             return false;
         }
 
-        public void UpdatePowerDraw() => 
+        public virtual void UpdatePowerDraw() => 
             this.GetComp<CompPowerTrader>().PowerOutput = -this.parts.Sum(t => (t.def as PCPartDef).powerDraw);
 
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn selPawn)

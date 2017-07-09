@@ -33,6 +33,7 @@ namespace RimCoin
                 Widgets.DrawLineHorizontal(0, num, inRect.width);
                 num += 50;
             }
+            Widgets.EndScrollView();
         }
     }
 }
