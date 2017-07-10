@@ -5,4 +5,8 @@
     <RimCoins>RimCoins</RimCoins>
     <RimCoin>RimCoin</RimCoin>
     <SpaceCostInspect>Needed Space: {0}</SpaceCostInspect>
+    <PowerDrawInspect>Needed Power: {0}</PowerDrawInspect>
+    <NeededSlotInspect>Needed Slot: {0}</NeededSlotInspect>
+    <MiningFactorInspect>Mining Factor: {0}</MiningFactorInspect>
+    <HeatDisplacementInspect>Heat Displacement Factor: {0}</HeatDisplacementInspect>
 </LanguageData>

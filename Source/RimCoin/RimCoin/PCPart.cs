@@ -8,15 +8,6 @@ namespace RimCoin
     {
         public PCPartDef PCPartDef => this.def as PCPartDef;
 
-        public override string GetInspectString()
-        {
-            List<string> inspects = new List<string>
-            {
-                base.GetInspectString().Trim(),
-                "SpaceCostInspect".Translate(this.PCPartDef.spaceCost)
-            };
-
-            return string.Join(Environment.NewLine, inspects.ToArray());
-        }
+        public override string GetInspectString() => base.GetInspectString() + Environment.NewLine + this.PCPartDef.InspectString;
     }
 }

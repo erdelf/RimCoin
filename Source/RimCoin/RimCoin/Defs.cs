@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using Verse;
 
@@ -6,28 +7,40 @@ namespace RimCoin
 {
     public class PCPartDef : ThingDef
     {
-        public float spaceCost;
+        public float spaceCost = 0;
         public float powerDraw = 0;
+
+        public PCPartDef() => this.thingClass = typeof(PCPart);
+
+        public virtual string InspectString => "SpaceCostInspect".Translate(this.spaceCost) + Environment.NewLine + "PowerDrawInspect".Translate(this.powerDraw);
     }
     
     public class PCSlotPartDef : PCPartDef
     {
         public string slot;
+
+        public override string InspectString => base.InspectString + Environment.NewLine + "NeededSlotInspect".Translate(this.slot);
     }
 
     public class PCMiningDef : PCSlotPartDef
     {
         public float miningFactor;
+
+        public override string InspectString => base.InspectString + Environment.NewLine + "MiningFactorInspect".Translate(this.miningFactor);
     }
 
     public class PCMotherboardDef : PCPartDef
     {
         public List<PCSlotCountEntry> slots;
+
+        public override string InspectString => base.InspectString;
     }
 
     public class PCCoolerDef : PCSlotPartDef
     {
         public float heatDisplacement;
+
+        public override string InspectString => base.InspectString + Environment.NewLine + "HeatDisplacementInspect".Translate(this.heatDisplacement);
     }
 
     public class PCCaseDef : ThingDef
