@@ -22,7 +22,7 @@ namespace RimCoin
                 defaultDuration = 1,
                 defaultCompleteMode = ToilCompleteMode.FinishedBusy,
                 finishActions = new List<Action>(1) {
-                    () => pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Near, out Thing result, (t, i) => (TargetB.Thing as Building_Computer).TryInstallPart(t))
+                    () => pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Near, out Thing result, (t, i) => (TargetB.Thing as Building_Computer).TryInstallPart(t as PCPart))
                 }
             };
         }

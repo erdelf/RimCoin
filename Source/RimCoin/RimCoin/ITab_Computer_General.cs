@@ -29,7 +29,8 @@ namespace RimCoin
             Text.Font = GameFont.Medium;
             for (int i = 0; i < this.Computer.parts.Count; i++)
             {
-                Widgets.Label(new Rect(0f, num + 5, inRect.width, 40f), this.Computer.parts[i].LabelCap);
+                Widgets.Label(new Rect(0f, num + 5, inRect.width/2f, 40f), this.Computer.parts[i].LabelCap);
+                Widgets.Label(new Rect(inRect.width/2f, num + 5, inRect.width/2f, 40f), this.Computer.parts[i].PCPartDef.spaceCost.ToString("##"));
                 Widgets.DrawLineHorizontal(0, num, inRect.width);
                 num += 50;
             }

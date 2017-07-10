@@ -19,7 +19,7 @@ namespace RimCoin
                 defaultCompleteMode = ToilCompleteMode.FinishedBusy,
                 finishActions = new List<Action>(1)
                 {
-                    () => (TargetA.Thing as Building_Computer).TryRemovePart(TargetB.Thing, pawn.Position)
+                    () => (TargetA.Thing as Building_Computer).TryRemovePart(TargetB.Thing as PCPart, pawn.Position)
                 }
             };
         }   

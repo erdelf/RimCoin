@@ -10,7 +10,11 @@ namespace RimCoin
         public float spaceCost = 0;
         public float powerDraw = 0;
 
-        public PCPartDef() => this.thingClass = typeof(PCPart);
+        public override void ResolveReferences()
+        {
+            base.ResolveReferences();
+             this.thingClass = typeof(PCPart);
+        }
 
         public virtual string InspectString => "SpaceCostInspect".Translate(this.spaceCost) + Environment.NewLine + "PowerDrawInspect".Translate(this.powerDraw);
     }

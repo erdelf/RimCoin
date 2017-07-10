@@ -9,12 +9,12 @@ namespace RimCoin
 {
     public class Building_Computer : Building
     {
-        public List<Thing> parts;
+        public List<PCPart> parts;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.parts = new List<Thing>();
+            this.parts = new List<PCPart>();
         }
 
         public Thing Motherboard => this.parts.FirstOrDefault(p => p.def is PCMotherboardDef);
@@ -42,7 +42,7 @@ namespace RimCoin
         public virtual bool AcceptsPart(Thing part) =>
             part?.def is PCPartDef pcp && pcp.spaceCost < this.FreeSpace && ((pcp is PCSlotPartDef pcsp && HasFreeSlot(pcsp.slot)) || (pcp is PCMotherboardDef && this.Motherboard == null));
 
-        public virtual bool TryInstallPart(Thing part)
+        public virtual bool TryInstallPart(PCPart part)
         {
             if (AcceptsPart(part))
             {
@@ -58,7 +58,7 @@ namespace RimCoin
 
         public virtual float HeatEnergy => Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput/100) * this.parts.Select(t => t.def).OfType<PCCoolerDef>().Select(pcc => pcc.heatDisplacement).Aggregate((a,b) => a*b+a);
 
-        public virtual bool TryRemovePart(Thing part, IntVec3 loc)
+        public virtual bool TryRemovePart(PCPart part, IntVec3 loc)
         {
             if(this.parts.Remove(part))
             {
