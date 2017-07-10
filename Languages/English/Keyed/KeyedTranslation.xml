@@ -4,4 +4,5 @@
     <InstallPCPartFloatMenu>Install new part</InstallPCPartFloatMenu>
     <RimCoins>RimCoins</RimCoins>
     <RimCoin>RimCoin</RimCoin>
+    <SpaceCostInspect>Needed Space: {0}</SpaceCostInspect>
 </LanguageData>

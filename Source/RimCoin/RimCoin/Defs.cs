@@ -10,12 +10,12 @@ namespace RimCoin
         public float powerDraw = 0;
     }
     
-    public class PCSlotPart : PCPartDef
+    public class PCSlotPartDef : PCPartDef
     {
         public string slot;
     }
 
-    public class PCMiningDef : PCSlotPart
+    public class PCMiningDef : PCSlotPartDef
     {
         public float miningFactor;
     }
@@ -25,7 +25,7 @@ namespace RimCoin
         public List<PCSlotCountEntry> slots;
     }
 
-    public class PCCoolerDef : PCSlotPart
+    public class PCCoolerDef : PCSlotPartDef
     {
         public float heatDisplacement;
     }

@@ -37,10 +37,10 @@ namespace RimCoin
 
         public virtual bool HasFreeSlot(string slot) => 
             ((this.Motherboard?.def as PCMotherboardDef)?.slots.FirstOrDefault(psce => psce.slot.EqualsIgnoreCase(slot))?.count ?? 0) > 
-            this.parts.Count(t => (t.def as PCSlotPart)?.slot.EqualsIgnoreCase(slot) ?? false);
+            this.parts.Count(t => (t.def as PCSlotPartDef)?.slot.EqualsIgnoreCase(slot) ?? false);
 
         public virtual bool AcceptsPart(Thing part) =>
-            part?.def is PCPartDef pcp && pcp.spaceCost < this.FreeSpace && ((pcp is PCSlotPart pcsp && HasFreeSlot(pcsp.slot)) || (pcp is PCMotherboardDef && this.Motherboard == null));
+            part?.def is PCPartDef pcp && pcp.spaceCost < this.FreeSpace && ((pcp is PCSlotPartDef pcsp && HasFreeSlot(pcsp.slot)) || (pcp is PCMotherboardDef && this.Motherboard == null));
 
         public virtual bool TryInstallPart(Thing part)
         {
