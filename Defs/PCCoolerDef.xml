@@ -5,7 +5,7 @@
         <label>cooler medium</label>
         <spaceCost>5</spaceCost>
         <heatDisplacement>0.80</heatDisplacement>
-
+        <slot>PCI</slot>
         <graphicData>
             <texPath>Things/Item/Special/AIPersonaCore</texPath>
             <graphicClass>Graphic_Single</graphicClass>

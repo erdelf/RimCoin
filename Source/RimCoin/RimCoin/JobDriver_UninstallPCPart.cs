@@ -8,6 +8,7 @@ namespace RimCoin
     {
         protected override IEnumerable<Toil> MakeNewToils()
         {
+            this.pawn.CurJob.count = 1;
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1, 1);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);
             Toil toil = Toils_General.Wait(500);
