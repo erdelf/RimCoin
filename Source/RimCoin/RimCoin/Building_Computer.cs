@@ -4,7 +4,7 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 using Verse.AI;
-    
+
 namespace RimCoin
 {
     public class Building_Computer : Building
@@ -76,7 +76,7 @@ namespace RimCoin
         {
             foreach (FloatMenuOption fmo in base.GetFloatMenuOptions(selPawn))
                 yield return fmo;
-            if (!this.Map.reservationManager.IsReserved(this, this.Faction))
+            if (!this.Map.reservationManager.IsReservedByAnyoneWhoseReservationsRespects(this, selPawn))
             {
                 foreach (Thing thing in this.parts)
                     if (thing != this.Motherboard || this.parts.Count == 1)

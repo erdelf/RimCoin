@@ -41,11 +41,11 @@
         <defname>RC_MidiTower</defname>
         <label>midi tower</label>
         <caseSpace>50.0</caseSpace>
+        <size>(3,2)</size>
         <graphicData>
-            <texPath>Things/Building/Furniture/Bed/Bed</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
-            <shaderType>CutoutComplex</shaderType>
-            <drawSize>(3,4)</drawSize>
+            <texPath>Things/Building/Misc/CommsConsole</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5,4)</drawSize>
             <damageData>
                 <rect>(0,0.05,1,1.95)</rect>
             </damageData>
