@@ -92,7 +92,7 @@ namespace RimCoin
         }
 
         public override string GetInspectString() => 
-            base.GetInspectString().Trim() + "\n" + "RimCoins".Translate() + ": " +Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount;
+            base.GetInspectString().Trim() + "\n" + "RimCoinInspect".Translate(Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount);
 
         public override void ExposeData()
         {

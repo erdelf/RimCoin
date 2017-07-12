@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+    <RimCoin>RimCoin</RimCoin>
     <UninstallPCPartFloatMenu>Uninstall {0}</UninstallPCPartFloatMenu>
     <InstallPCPartFloatMenu>Install new part</InstallPCPartFloatMenu>
-    <RimCoins>RimCoins</RimCoins>
-    <RimCoin>RimCoin</RimCoin>
+    <RimCoinInspect>RimCoins: {0}</RimCoinInspect>
     <SpaceCostInspect>Needed Space: {0}</SpaceCostInspect>
     <PowerDrawInspect>Needed Power: {0}</PowerDrawInspect>
     <NeededSlotInspect>Needed Slot: {0}</NeededSlotInspect>
     <MiningFactorInspect>Mining Factor: {0}</MiningFactorInspect>
     <HeatDisplacementInspect>Heat Displacement Factor: {0}</HeatDisplacementInspect>
+    <AvailableSpaceTabLabel>Available Space: {0}</AvailableSpaceTabLabel>
 </LanguageData>
