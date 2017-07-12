@@ -76,23 +76,25 @@ namespace RimCoin
         {
             foreach (FloatMenuOption fmo in base.GetFloatMenuOptions(selPawn))
                 yield return fmo;
+            if (!this.Map.reservationManager.IsReserved(this, this.Faction))
+            {
+                foreach (Thing thing in this.parts)
+                    if (thing != this.Motherboard || this.parts.Count == 1)
+                        yield return new FloatMenuOption("UninstallPCPartFloatMenu".Translate(thing.LabelCap), () =>
+                            selPawn.jobs.TryTakeOrderedJob(new Job(RCDefOf.UninstallPCPart, this, thing)));
 
-            foreach (Thing thing in this.parts)
-                if (thing != this.Motherboard || this.parts.Count == 1)
-                    yield return new FloatMenuOption("UninstallPCPartFloatMenu".Translate(thing.LabelCap), () =>
-                        selPawn.jobs.TryTakeOrderedJob(new Job(RCDefOf.UninstallPCPart, this, thing)));
-
-            yield return new FloatMenuOption("InstallPCPartFloatMenu".Translate(),
-                () => Find.Targeter.BeginTargeting(new TargetingParameters()
-                {
-                    validator = lti => AcceptsPart(lti.Cell.GetFirstItem(lti.Map)),
-                    canTargetItems = true,
-                    canTargetLocations = true
-                }, lti => selPawn.jobs.TryTakeOrderedJob(new Job(RCDefOf.InstallPCPart, lti.Cell.GetFirstItem(this.Map), this))));
+                yield return new FloatMenuOption("InstallPCPartFloatMenu".Translate(),
+                    () => Find.Targeter.BeginTargeting(new TargetingParameters()
+                    {
+                        validator = lti => AcceptsPart(lti.Cell.GetFirstItem(lti.Map)),
+                        canTargetItems = true,
+                        canTargetLocations = true
+                    }, lti => selPawn.jobs.TryTakeOrderedJob(new Job(RCDefOf.InstallPCPart, lti.Cell.GetFirstItem(this.Map), this))));
+            }
         }
 
         public override string GetInspectString() => 
-            base.GetInspectString().Trim() + "\n" + "RimCoinInspect".Translate(Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount);
+            base.GetInspectString().Trim() + (this.holdingOwner.Owner as MinifiedThing != null ? "" : "\n" + "RimCoinInspect".Translate(Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount));
 
         public override void ExposeData()
         {

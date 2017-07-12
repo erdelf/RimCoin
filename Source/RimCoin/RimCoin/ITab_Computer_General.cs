@@ -17,7 +17,7 @@ namespace RimCoin
 
         public Building_Computer Computer => this.SelThing as Building_Computer;
 
-        public override bool IsVisible => true;
+        public override bool IsVisible => this.Computer.holdingOwner?.Owner as MinifiedThing == null;
 
         protected override void FillTab()
         {
