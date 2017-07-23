@@ -10,4 +10,7 @@
     <MiningFactorInspect>Mining Factor: {0}</MiningFactorInspect>
     <HeatDisplacementInspect>Heat Displacement Factor: {0}</HeatDisplacementInspect>
     <AvailableSpaceTabLabel>Available Space: {0}</AvailableSpaceTabLabel>
+    <TabComputer>Computer</TabComputer>
+    <NoMotherBoardInstalled>There is no motherboard installed</NoMotherBoardInstalled>
+    <FreeSlotsTab>Free Slots:</FreeSlotsTab>
 </LanguageData>

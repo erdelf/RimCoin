@@ -27,16 +27,25 @@ namespace RimCoin
 
         public override void TickLong()
         {
-            if (this.GetComp<CompPowerTrader>().PowerOn || this.AmbientTemperature < 80f)
+            if (this.GetComp<CompPowerTrader>().PowerOn)
             {
-                Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount += Mathf.RoundToInt(this.parts.Select(t => t.def).OfType<PCMiningDef>().Sum(pcd => 1 * pcd.miningFactor));
-                GenTemperature.PushHeat(this, Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput));
-                UpdatePowerDraw();
+                if (this.AmbientTemperature > 80f)
+                {
+                    this.TryAttachFire(2f);
+                } else
+                {
+                    Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount += Mathf.RoundToInt(this.parts.Select(t => t.def).OfType<PCMiningDef>().Sum(pcd => 1 * pcd.miningFactor));
+                    GenTemperature.PushHeat(this, Mathf.Abs(this.GetComp<CompPowerTrader>().PowerOutput));
+                    UpdatePowerDraw();
+                }
             }
         }
 
-        public virtual bool HasFreeSlot(string slot) => 
-            ((this.Motherboard?.def as PCMotherboardDef)?.slots.FirstOrDefault(psce => psce.slot.EqualsIgnoreCase(slot))?.count ?? 0) > 
+        public virtual bool HasFreeSlot(string slot) =>
+            FreeSlotCount(slot) > 0;
+
+        public virtual int FreeSlotCount(string slot) =>
+            ((this.Motherboard?.def as PCMotherboardDef)?.slots.FirstOrDefault(psce => psce.slot.EqualsIgnoreCase(slot))?.count ?? 0) -
             this.parts.Count(t => (t.def as PCSlotPartDef)?.slot.EqualsIgnoreCase(slot) ?? false);
 
         public virtual bool AcceptsPart(Thing part) =>

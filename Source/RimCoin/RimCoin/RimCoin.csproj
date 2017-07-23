@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Reloader">
+      <HintPath>..\..\..\..\..\..\..\Users\erdelfion\Documents\modfiles\rimworld\Reloader\0Reloader.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>D:\Games\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -50,6 +53,7 @@
     <Compile Include="CompPCHeatPusher.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="ITab_Computer_General.cs" />
+    <Compile Include="ItemCollectionGenerator_PC.cs" />
     <Compile Include="JobDriver_InstallPCPart.cs" />
     <Compile Include="JobDriver_UninstallPCPart.cs" />
     <Compile Include="PCPart.cs" />
@@ -58,4 +62,19 @@
     <Compile Include="WorldComp_RimCoin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_StartDate="2000/1/1" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="TransformOnBuild" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <!-- CHANGE TO YOUR CORRECT PATH, THIS IS FOR VISUAL STUDIO 2017 COMMUNITY EDITION -->
+      <_TransformExe>$(MSBuildExtensionsPath)\..\Common7\IDE\TextTransform.exe</_TransformExe>
+      <_TextTransform>$(ProjectDir)Properties\AssemblyInfo.tt</_TextTransform>
+      <_TextTransformResult>$(ProjectDir)Properties\AssemblyInfo.cs</_TextTransformResult>
+    </PropertyGroup>
+    <Exec Command="del &quot;$(_TextTransformResult)&quot;" />
+    <Exec Command="&quot;$(_TransformExe)&quot; &quot;$(_TextTransform)&quot; -out &quot;$(_TextTransformResult)&quot;" />
+  </Target>
 </Project>

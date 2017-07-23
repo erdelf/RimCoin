@@ -5,10 +5,10 @@ using Verse;
 
 namespace RimCoin
 {
-    public class PCPartDef : ThingDef
+    public abstract class PCPartDef : ThingDef
     {
-        public float spaceCost = 0;
-        public float powerDraw = 0;
+        public int spaceCost = 0;
+        public int powerDraw = 0;
 
         public override void ResolveReferences()
         {
@@ -19,7 +19,7 @@ namespace RimCoin
         public virtual string InspectString => "SpaceCostInspect".Translate(this.spaceCost) + Environment.NewLine + "PowerDrawInspect".Translate(this.powerDraw);
     }
     
-    public class PCSlotPartDef : PCPartDef
+    public abstract class PCSlotPartDef : PCPartDef
     {
         public string slot;
 
