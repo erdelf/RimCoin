@@ -4,6 +4,6 @@
   <ItemCollectionGeneratorDef>
     <defName>AllRimCoinParts</defName>
     <label>RimCoin</label>
-    <workerClass>RimCoin.ItemCollectionGenerator_PC</workerClass>
+    <workerClass>RimCoin.ItemCollectionGenerator_RimCoin</workerClass>
   </ItemCollectionGeneratorDef>
 </Defs>

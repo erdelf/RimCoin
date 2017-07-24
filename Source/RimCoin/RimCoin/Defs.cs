@@ -16,21 +16,21 @@ namespace RimCoin
              this.thingClass = typeof(PCPart);
         }
 
-        public virtual string InspectString => "SpaceCostInspect".Translate(this.spaceCost) + Environment.NewLine + "PowerDrawInspect".Translate(this.powerDraw);
+        public virtual string InspectString => "RCSpaceCostInspect".Translate(this.spaceCost) + Environment.NewLine + "RCPowerDrawInspect".Translate(this.powerDraw);
     }
     
     public abstract class PCSlotPartDef : PCPartDef
     {
         public string slot;
 
-        public override string InspectString => base.InspectString + Environment.NewLine + "NeededSlotInspect".Translate(this.slot);
+        public override string InspectString => base.InspectString + Environment.NewLine + "RCNeededSlotInspect".Translate(this.slot);
     }
 
     public class PCMiningDef : PCSlotPartDef
     {
         public float miningFactor;
 
-        public override string InspectString => base.InspectString + Environment.NewLine + "MiningFactorInspect".Translate(this.miningFactor);
+        public override string InspectString => base.InspectString + Environment.NewLine + "RCMiningFactorInspect".Translate(this.miningFactor);
     }
 
     public class PCMotherboardDef : PCPartDef
@@ -44,7 +44,7 @@ namespace RimCoin
     {
         public float heatDisplacement;
 
-        public override string InspectString => base.InspectString + Environment.NewLine + "HeatDisplacementInspect".Translate(this.heatDisplacement);
+        public override string InspectString => base.InspectString + Environment.NewLine + "RCHeatDisplacementInspect".Translate(this.heatDisplacement);
     }
 
     public class PCCaseDef : ThingDef

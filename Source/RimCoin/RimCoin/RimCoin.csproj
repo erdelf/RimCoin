@@ -53,7 +53,7 @@
     <Compile Include="CompPCHeatPusher.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="ITab_Computer_General.cs" />
-    <Compile Include="ItemCollectionGenerator_PC.cs" />
+    <Compile Include="ItemCollectionGenerator_RimCoin.cs" />
     <Compile Include="JobDriver_InstallPCPart.cs" />
     <Compile Include="JobDriver_UninstallPCPart.cs" />
     <Compile Include="PCPart.cs" />
