@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Reloader;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -25,7 +24,7 @@ namespace RimCoin
         protected override void FillTab() => 
             FillTabStatic(new Rect(0f, 0f, this.size.x, this.size.y).ContractedBy(10f), this.Computer);
 
-        [ReloadMethod]
+        
         private static void FillTabStatic(Rect rect, Building_Computer computer)
         {
             Widgets.Label(rect.TopPart(0.10f), "RCAvailableSpaceTabLabel".Translate(computer.FreeSpace));

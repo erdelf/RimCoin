@@ -2,6 +2,10 @@
 <PCCaseDefs>
     <RimCoin.PCCaseDef Name="CaseBase" ParentName="BuildingBase" Abstract="true">
         <thingClass>RimCoin.Building_Computer</thingClass>
+        <category>Building</category>
+        <thingCategories>
+            <li>PCPart</li>
+        </thingCategories>
         <tickerType>Long</tickerType>
         <DesignationCategory>Misc</DesignationCategory>
         <tradeTags>

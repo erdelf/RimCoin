@@ -4,6 +4,10 @@
         <defname>RC_Motherboard_medium</defname>
         <label>motherboard medium</label>
         <spaceCost>10</spaceCost>
+        <category>Item</category>
+        <thingCategories>
+            <li>PCPart</li>
+        </thingCategories>
         <slots>
             <PCI>10</PCI>
         </slots>

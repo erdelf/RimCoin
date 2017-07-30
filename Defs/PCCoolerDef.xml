@@ -2,6 +2,10 @@
 <PCCaseDefs>
     <RimCoin.PCCoolerDef ParentName="ResourceBase">
         <defname>RC_Cooler_Medium</defname>
+        <category>Item</category>
+        <thingCategories>
+            <li>PCPart</li>
+        </thingCategories>
         <label>cooler medium</label>
         <spaceCost>5</spaceCost>
         <heatDisplacement>0.80</heatDisplacement>

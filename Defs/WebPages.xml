@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RimCoin.WebPageDef>
+        <defName>Outel</defName>
+        <!-- creative.. I know. Take it from here if you need http://fictionalcompanies.wikia.com/wiki/List_of_fake_brands_in_anime -->
+        <label>Outel</label>
+        <description>All of your computer needs, you can find here at Outel</description>
+        <webPageClass>RimCoin.ShoppingSite_List</webPageClass>
+        <stockGenerators>
+            <li Class="StockGenerator_Category">
+                <categoryDef>PCPart</categoryDef>
+                <thingDefCountRange>
+                    <min>3</min>
+                    <max>20</max>
+                </thingDefCountRange>
+                <price>Expensive</price>
+            </li>
+        </stockGenerators>
+    </RimCoin.WebPageDef>
+</Defs>

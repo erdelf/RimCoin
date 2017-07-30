@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingCategoryDefs>
+  <ThingCategoryDef>
+    <defName>PCPart</defName>
+    <label>pc part</label>
+    <parent>Manufactured</parent>
+    <resourceReadoutRoot>true</resourceReadoutRoot>
+    <iconPath>Things/Item/Special/AIPersonaCore</iconPath>
+  </ThingCategoryDef>
+</ThingCategoryDefs>
