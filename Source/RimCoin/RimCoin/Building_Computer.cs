@@ -102,6 +102,20 @@ namespace RimCoin
             }
         }
 
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+                yield return g;
+            yield return new Command_Action()
+            {
+                defaultLabel = "",
+                defaultDesc = "",
+                disabled = !this.GetComp<CompPowerTrader>().PowerOn,
+                disabledReason = "CannotUseNoPower".Translate(),
+                action = () => WebPageUtility.OpenDialog();
+            };
+        }
+
         public override string GetInspectString() => 
             base.GetInspectString().Trim() + (this.holdingOwner.Owner as MinifiedThing != null ? "" : "\n" + "RCRimCoinInspect".Translate(Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount.ToString("F3")));
 
