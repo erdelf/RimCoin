@@ -103,7 +103,7 @@ namespace RimCoin
         }
 
         public override string GetInspectString() => 
-            base.GetInspectString().Trim() + (this.holdingOwner.Owner as MinifiedThing != null ? "" : "\n" + "RCRimCoinInspect".Translate(Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount));
+            base.GetInspectString().Trim() + (this.holdingOwner.Owner as MinifiedThing != null ? "" : "\n" + "RCRimCoinInspect".Translate(Find.World.GetComponent<WorldComp_RimCoin>().RimCoinAmount.ToString("F3")));
 
         public override void ExposeData()
         {

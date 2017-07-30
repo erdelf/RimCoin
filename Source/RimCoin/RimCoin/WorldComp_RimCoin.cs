@@ -5,9 +5,10 @@ namespace RimCoin
 {
     class WorldComp_RimCoin : WorldComponent
     {
-        int rimCoinAmount;
+        float rimCoinAmount;
+        const float silverToRimCoinFactor = 1.5f;
 
-        public int RimCoinAmount {
+        public float RimCoinAmount {
             get => this.rimCoinAmount;
             set => this.rimCoinAmount = value;
         }
