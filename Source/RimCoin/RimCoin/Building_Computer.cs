@@ -112,7 +112,7 @@ namespace RimCoin
                 defaultDesc = "",
                 disabled = !this.GetComp<CompPowerTrader>().PowerOn,
                 disabledReason = "CannotUseNoPower".Translate(),
-                action = () => WebPageUtility.OpenDialog();
+                action = () => WebPageUtility.OpenDialog()
             };
         }
 
